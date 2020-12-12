@@ -21,6 +21,7 @@
 		77D4B22B25853A4900363878 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D4B22A25853A4900363878 /* URLImage.swift */; };
 		77D4B23025853AB700363878 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D4B22F25853AB700363878 /* AppReducer.swift */; };
 		77D4B23425853BA300363878 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D4B23325853BA300363878 /* Store.swift */; };
+		77D4B23925854CA300363878 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D4B23825854CA300363878 /* Webservice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		77D4B22A25853A4900363878 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		77D4B22F25853AB700363878 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
 		77D4B23325853BA300363878 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		77D4B23825854CA300363878 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				77D4B221258539A600363878 /* Loaders */,
 				77D4B21C2585395700363878 /* Utils */,
 				77D4B214258538CC00363878 /* Extension */,
+				77D4B23725854C6C00363878 /* Services */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -169,6 +172,14 @@
 				77D4B22F25853AB700363878 /* AppReducer.swift */,
 			);
 			path = Reducers;
+			sourceTree = "<group>";
+		};
+		77D4B23725854C6C00363878 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				77D4B23825854CA300363878 /* Webservice.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,6 +261,7 @@
 				77D4B1F42585374E00363878 /* MovieReduxApp.swift in Sources */,
 				77D4B216258538DD00363878 /* View+Extensions.swift in Sources */,
 				77D4B21E2585396600363878 /* Constants.swift in Sources */,
+				77D4B23925854CA300363878 /* Webservice.swift in Sources */,
 				77D4B219258538F800363878 /* String+Extensions.swift in Sources */,
 				77D4B20D2585389A00363878 /* Movie.swift in Sources */,
 			);
@@ -384,7 +396,7 @@
 				DEVELOPMENT_TEAM = PFT2629W4Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/MovieRedux/App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -406,7 +418,7 @@
 				DEVELOPMENT_TEAM = PFT2629W4Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/MovieRedux/App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
