@@ -14,7 +14,21 @@ typealias Dispatcher = (Action) -> Void
 typealias Reducer<State: ReduxState> = (_ state: State, _ action: Action) -> State
 typealias Middleware<StoreState: ReduxState> = (StoreState, Action, @escaping Dispatcher) -> Void
 
-struct AppState: ReduxState {}
+struct AppState: ReduxState {
+   var movies = MoviesState()
+}
+
+struct MoviesState: ReduxState {
+    var movies = [Movie]()
+}
+
+struct FetchMovies: Action {
+    let search: String
+}
+
+struct SetMovies: Action {
+    let movies: [Movie]
+}
 
 class Store<StoreState: ReduxState>: ObservableObject {
     var reducer: Reducer<StoreState>
