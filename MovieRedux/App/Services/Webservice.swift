@@ -32,4 +32,23 @@ class Webservice {
             }
         }.resume()
     }
+    
+    func getMoviewDetailBy(imdbId: String, completion: @escaping (Result<MovieDetail?, NetworkError>) -> Void) {
+        guard let movieURL = URL(string: Constants.Urls.urlForMovieDetailsByImdbId(imdbId: imdbId)) else {
+            completion(.failure(.badURL))
+            return
+        }
+        URLSession.shared.dataTask(with: movieURL) { data, response, error in
+            guard let data = data, error == nil else {
+                completion(.failure(.noData))
+                return
+            }
+            let movieDetail = try? JSONDecoder().decode(MovieDetail.self, from: data)
+            if let movieDetail = movieDetail {
+                completion(.success(movieDetail))
+            } else {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+    }
 }

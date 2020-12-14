@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  RootView.swift
 //  MovieRedux
 //
 //  Created by Viktor on 12.12.2020.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
+struct RootView: View {
     @EnvironmentObject var store: Store<AppState>
+    @State private var search = ""
     
     struct Props {
         let movies: [Movie]
@@ -23,21 +23,26 @@ struct ContentView: View {
     }
     
     var body: some View {
-        
         let props = map(state: store.state.movies)
         
         VStack {
+            TextField("Search...", text: $search, onEditingChanged: { _ in },
+                      onCommit: {
+                        props.onSearch(search)
+                      })
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+            
             List(props.movies, id: \.imdbId) { movie in
-                MovieCell(movie: movie)
+                NavigationLink(
+                    destination: MovieDetailsView(movie: movie),
+                    label: {
+                        MovieCell(movie: movie)
+                    })
             }.listStyle(PlainListStyle())
         }
         .navigationTitle("Movies")
-        .embedInNavigationView()
-        
-        .onAppear(perform: {
-            props.onSearch("Batman")
-        })
-    
+        .embedInNavigationView()        
     }
 }
 
@@ -45,6 +50,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         
         let store = Store(reducer: appReducer, state: AppState(), middlewares: [moviesMiddleware()])
-        return ContentView().environmentObject(store)
+        return RootView().environmentObject(store)
     }
 }
